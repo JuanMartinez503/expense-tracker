@@ -11,6 +11,7 @@ module.exports = {
         .json({ message: "There was an error retrieving the budget" });
     }
   },
+  
   async updateBudget(req, res) {
     try {
       const budget = await Budget.findByIdAndUpdate(req.user.id);
