@@ -9,6 +9,7 @@ import Error from './pages/Error.jsx'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const router= createBrowserRouter([{
   path:'/',

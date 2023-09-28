@@ -1,0 +1,50 @@
+
+:root{
+  --light:#f5f5f5;
+  --dark:#444444;
+  --darker:#62707a;
+}
+
+
+body{
+  background-color: var(--dark) !important;
+
+  color: aliceblue !important;
+
+}
+
+
+.cont{
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+  padding-bottom:2% ;
+  background-color: var(--darker);
+  box-shadow: 2px 2px 10px var(--light);
+}
+.nav li a{
+  margin: 2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  color: var(--color);
+}
+.nav li a:hover{
+  font-size: 2.1rem;
+}
+.outlet{
+  padding: 2%;
+
+}
+@media screen and (max-width:991px){
+.cont .nav{
+  flex-direction: column;
+  
+}
+.nav li a{
+  margin: 3%;
+  font-size: 1.5rem;
+}
+.nav li a:hover {
+  font-size: 1.6rem;
+}
+}
