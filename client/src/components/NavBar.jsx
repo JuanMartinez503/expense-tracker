@@ -7,7 +7,7 @@ export default function NavBar(){
             <nav className="nav">
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/:userId">Profile</Link></li>
-                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/login"><button className="btn btn-primary">Login</button></Link></li>
             </nav>
         </header>
 

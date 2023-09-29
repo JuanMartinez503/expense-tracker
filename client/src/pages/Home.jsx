@@ -11,9 +11,9 @@ export default function Home() {
         </h2>
       </div>
       <div className="home-body">
-        <img src={money} alt="" />
+        <img src={money} alt="A picture of money" />
         <div className="key-features dark-bg">
-            <h3>Key Features</h3>
+          <h3>Key Features</h3>
           <ul>
             <li>
               "Track Your Expenses: Easily record your daily expenditures and
@@ -39,21 +39,24 @@ export default function Home() {
         </div>
       </div>
       <div className="home-sign mt-4">
-        <h3>"Ready to get started? Sign up or log in to start tracking your expenses today."
-</h3>
-<dvi className="sign-cont">
-    <div className="return p-3 dark-bg text-center">
-        <h4>Returning User?</h4>
-        <Link to="/login"><button className="btn btn-primary">Login</button></Link>
-    </div>
-    <div className="existing dark-bg p-3 text-center ">
-        <h4>
-            Don't have an account?
-        </h4>
-        <Link to="/signup"><button className="btn ">Sign Up</button></Link>
-
-    </div>
-</dvi>
+        <h3>
+          "Ready to get started? Sign up or log in to start tracking your
+          expenses today."
+        </h3>
+        <div className="sign-cont">
+          <div className="return p-3 dark-bg text-center">
+            <h4>Returning User?</h4>
+            <Link to="/login">
+              <button className="btn btn-primary">Login</button>
+            </Link>
+          </div>
+          <div className="existing dark-bg p-3 text-center ">
+            <h4>Don't have an account?</h4>
+            <Link to="/signup">
+              <button className="btn btn-warning">Sign Up</button>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

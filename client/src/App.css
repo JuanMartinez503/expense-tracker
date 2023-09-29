@@ -9,7 +9,9 @@
   text-shadow: .5px .5px 3px black;
 
 }
-
+button:focus{
+  transform: scale(.9);
+}
 body{
   background-color: var(--darker) !important;
 
@@ -95,7 +97,10 @@ font-size: 1.9rem;
 }
 .existing button{
   background-color: var(--yellow);
+
 }
+
+
 @media screen and (max-width:991px){
 .cont .nav{
   flex-direction: column;
@@ -107,5 +112,19 @@ font-size: 1.9rem;
 }
 .nav li a:hover {
   font-size: 1.6rem;
+}
+.home-body{
+  flex-direction: column;
+}
+.home-body img {
+  width: 80%;
+  margin:2% auto ;
+}
+.key-features {
+  width: 80%;
+  margin: 1% auto;
+}
+.key-features li{
+font-size: 1.1rem;
 }
 }
