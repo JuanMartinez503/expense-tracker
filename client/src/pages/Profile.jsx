@@ -16,7 +16,7 @@ const [budget, setBudget ]= useState(null)
                 <button className="btn btn-warning">Update</button>
                 </form>
                <div >
-                <h2 className="text-center">Your Budget is:</h2>
+                <h2 className="text-center">Your Budget is:  $<span>{'100'}</span></h2>
                </div>
                 
        
