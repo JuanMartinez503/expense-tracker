@@ -99,6 +99,22 @@ font-size: 1.9rem;
   background-color: var(--yellow);
 
 }
+#login{
+  background-color: var(--dark);
+  color: var(--light);
+  box-shadow: 1px 1px 3px var(--light) inset;
+}
+.card-header{
+  background-color: var(--darker) !important;
+  box-shadow: 1px 1px 3px var(--light) inset;
+
+}
+#sign-up{
+  background-color: var(--dark);
+  color: var(--light);
+  box-shadow: 1px 1px 3px var(--light) inset;
+
+}
 
 
 @media screen and (max-width:991px){

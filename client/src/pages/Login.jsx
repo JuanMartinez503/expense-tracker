@@ -33,10 +33,10 @@ export default function Login(){
     return(
         
            <div>
-<div id="login" className="container mb-5">
+<div className="container mb-5">
   <div className="row justify-content-center mt-5">
     <div className="col-md-6">
-      <div className="card signup-form">
+      <div id="login"  className="card signup-form">
         <div className="card-header">Log In</div>
         <div className="card-body">
           {errorMessage && (
@@ -71,7 +71,7 @@ export default function Login(){
                 placeholder="Enter your password"
               />
             </div>
-            <button type="submit" className="btn login-btn">
+            <button type="submit" className="btn btn-primary">
               Log In
             </button>
           </form>

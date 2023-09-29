@@ -37,10 +37,10 @@ export default function SignUp() {
   };
   return (
     <div>
-      <div id='sign-up' className="container mb-5">
+      <div  className="container mb-5">
         <div className="row justify-content-center mt-5">
           <div className="col-md-6">
-            <div className="card signup-form">
+            <div id='sign-up' className="card signup-form">
               <div className="card-header">Sign Up</div>
               <div className="card-body">
                 {errorMessage && (
@@ -88,7 +88,7 @@ export default function SignUp() {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <button type="submit" className="btn login-btn ">
+                  <button type="submit" className="btn btn-primary ">
                     Sign Up
                   </button>
                 </form>
