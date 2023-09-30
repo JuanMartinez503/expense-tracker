@@ -22,6 +22,7 @@ module.exports = {
         try {
             const user = await User.create(req.body)
             const token = signToken(user)
+            console.log(user,token);
             res.json({user , token})
         } catch (err) {
             res.status(500).json({message:'there was a problem creating the user'})
@@ -42,5 +43,6 @@ module.exports = {
         const token = signToken(user);
         res.json({ token, user });
         console.log(user);
+        console.log(token)
       },
 }
