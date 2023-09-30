@@ -14,6 +14,7 @@ export default function ExpensesComponent() {
           <p>{item.name}</p>
           <p>{item.description}</p>
           <p>{item.date}</p>
+          
         </Link>
       ));
     };

@@ -114,12 +114,15 @@ font-size: 1.9rem;
   color: var(--light);
   box-shadow: 1px 1px 3px var(--light) inset;}
 
- .budget-container{
-display: flex;
-justify-content: space-between;
+ .budget-container form{
+width: 25%;
+margin: 0 auto;
  }
- .budget-container{
-
+ .budget-container h3{
+width: 20%;
+margin: 2%;
+border: 1px solid white;
+font-size: 2rem;
  }
 #budget{
   margin-right: 1%;
@@ -129,6 +132,11 @@ justify-content: space-between;
   font-size: 1.5rem;
   box-shadow: 1px 1px 5px var(--light);
   
+}
+.budget-price{
+  font-size: 2.5rem;
+  text-align: center;
+  color: rgb(0, 242, 0);
 }
 .description-container{
   margin: 2%;
@@ -143,6 +151,7 @@ border: 1px solid white;
 
 }
 .expenses-loop{
+
   border: 1px solid white;
   margin: 2%;
 }
@@ -160,8 +169,29 @@ padding: 1%;
 overflow: scroll;
 }
 
+.remaining-balance{
+  text-align: right;
+  margin-right: 2%;
+}
+.remaining-balance h3 {
+  font-size: 2rem;
+}
 
+.remaining-balance span {
+  font-size: 2.5rem;
+  color: rgb(0, 242, 0);
 
+}
+.expenses-form{
+  margin-left: 2%;
+}
+.expenses-form input {
+  padding: 1%;
+  width: 25%;
+  margin-right: 3%;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px var(--light);
+}
 
 
 @media screen and (max-width:991px){
