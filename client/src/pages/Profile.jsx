@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ExpensesComponent from "../components/expensesComponent"
 export default function Profile(){
-const [budget, setBudget ]= useState(null)
+const [budget, setBudget ]= useState()
     return(
         <div>
             <div className="budget-container">
