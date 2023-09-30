@@ -130,6 +130,36 @@ justify-content: space-between;
   box-shadow: 1px 1px 5px var(--light);
   
 }
+.description-container{
+  margin: 2%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.description-container h3{
+  width: 25%;
+  text-align: center;
+border: 1px solid white;
+
+}
+.expenses-loop{
+  border: 1px solid white;
+  margin: 2%;
+}
+.expense-row{
+  border: 1px solid white;
+  display: flex;
+  margin-top: 1%;
+  justify-content: space-between;
+}
+.expense-row p {
+  width: 25%;
+border: 1px solid white;
+text-align: center;
+padding: 1%;
+overflow: scroll;
+}
+
 
 
 
