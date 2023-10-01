@@ -134,39 +134,52 @@ font-size: 2rem;
   
 }
 .budget-price{
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   text-align: center;
   color: rgb(0, 242, 0);
 }
 .description-container{
   margin: 2%;
+  padding: 1%;
   display: flex;
   justify-content: space-between;
   text-align: center;
+  background-color: var(--dark);
+  box-shadow: 1px 1px 5px var(--dark);
+
+  
 }
 .description-container h3{
-  width: 25%;
+  width: 24.5%;
+  margin-left: .5%;
   text-align: center;
-border: 1px solid white;
+color: var(--yellow);
 
 }
 .expenses-loop{
 
-  border: 1px solid white;
   margin: 2%;
 }
 .expense-row{
-  border: 1px solid white;
   display: flex;
+  text-decoration: none;
   margin-top: 1%;
   justify-content: space-between;
 }
 .expense-row p {
-  width: 25%;
-border: 1px solid white;
+  background-color: var(--dark);
+box-shadow: 1px 1px 5px inset var(--light);
+  width: 24.5%;
 text-align: center;
+border-radius: 20px;
 padding: 1%;
+margin-left: .5%;
 overflow: scroll;
+color: var(--light);
+}
+.expense-row:hover{
+  transform: scale(1.01);
+
 }
 
 .remaining-balance{
@@ -192,7 +205,18 @@ overflow: scroll;
   border-radius: 20px;
   box-shadow: 1px 1px 5px var(--light);
 }
-
+.welcome-container {
+  display: flex !important;
+  justify-content: center;
+}
+.welcome-container h3{
+  width: 100%;
+  font-size: 1.5rem;
+  margin-right: 200px;
+}
+.amount-money {
+  color: #ff4545;
+}
 
 @media screen and (max-width:991px){
 .cont .nav{

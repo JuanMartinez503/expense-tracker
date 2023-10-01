@@ -10,7 +10,7 @@ export default function ExpensesComponent() {
   
       return data.map((item, index) => (
         <Link to="/:userId/:expenseId" className="expense-row" key={index}>
-          <p>{item.amount}</p>
+          <p>-<span className="amount-money">{item.amount}</span></p>
           <p>{item.name}</p>
           <p>{item.description}</p>
           <p>{item.date}</p>
@@ -28,6 +28,9 @@ export default function ExpensesComponent() {
           <h3>Date</h3>
         </div>
         <div className="expenses-loop">{loopTest()}</div>
+        <div className="remaining-balance mb-3">
+                <h3>Remaining Balance: $ <span>100</span></h3>
+            </div>
       </div>
     );
   }
