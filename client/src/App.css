@@ -118,7 +118,8 @@ font-size: 1.9rem;
   box-shadow: 1px 1px 3px var(--light) inset;}
 
  .budget-container form{
-width: 25%;
+width: 50%;
+padding: 2%;
 margin: 0 auto;
  }
  .budget-container h3{
@@ -200,8 +201,18 @@ color: var(--light);
 }
 .expenses-form{
   margin-left: 2%;
+  display: flex;
+  flex-wrap: wrap;
 
 }
+.expenses-form h4 {
+
+  width: 100%;
+}
+.expenses-form-input{
+  width: 85% !important;
+}
+
 .expenses-form input {
   padding: 1%;
   width: 25%;
@@ -324,6 +335,9 @@ font-size: 1.1rem;
   width: 25% !important;
   margin-right: 5%;
   margin-bottom: 2%;
+}
+.expenses-form-input{
+  width: 100% !important;
 }
 .expenses-form button {
   display: block !important;
