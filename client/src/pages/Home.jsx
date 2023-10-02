@@ -16,8 +16,8 @@ export default function Home() {
           <h3>Key Features</h3>
           <ul>
             <li>
-              Track Your Expenses: Easily record your daily expenditures and
-              see where your money is going.
+              Track Your Expenses: Easily record your daily expenditures and see
+              where your money is going.
             </li>
             <li>
               Set Budgets: Stay on top of your finances by setting monthly or
@@ -28,8 +28,8 @@ export default function Home() {
               graphs that help you understand your spending habits.
             </li>
             <li>
-              Secure and Private: Your financial data is safe and protected
-              with us. We take your privacy seriously.
+              Secure and Private: Your financial data is safe and protected with
+              us. We take your privacy seriously.
             </li>
             <li>
               User-Friendly: Our user-friendly interface makes managing your
@@ -50,7 +50,7 @@ export default function Home() {
               <button className="btn btn-primary">Login</button>
             </Link>
           </div>
-          <div className="existing dark-bg p-3 text-center" >
+          <div className="existing dark-bg p-3 text-center">
             <h4>Don't have an account?</h4>
             <Link to="/signup">
               <button className="btn btn-warning">Sign Up</button>
