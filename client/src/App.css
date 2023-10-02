@@ -245,7 +245,7 @@ box-shadow: 1px 1px 3px var(--light);
   width: 5rem;
 }
 
-@media screen and (max-width:991px){
+@media screen and (max-width:640px){
 .cont .nav{
   flex-direction: column;
   
@@ -271,4 +271,43 @@ box-shadow: 1px 1px 3px var(--light);
 .key-features li{
 font-size: 1.1rem;
 }
+.budget-container form {
+  text-align: center;
+  width: 60%;
+
+}
+.budget-container h2{
+  font-size: 1.2rem;
+}
+.budget-container input{
+  width: 100%;
+  font-size: 1.1rem !important;
+  margin-bottom: 2%;
+}
+.btn {
+  font-size: 1rem !important;
+}
+.welcome-container{
+  display: flex;
+
+  flex-direction: column-reverse;
+}
+.welcome-container h3 {
+  font-size: 1.5rem;
+}
+.description-container h3{
+  font-size: 1rem;
+}
+.expense-row p{
+  font-size: .5rem;
+  text-align: center;
+  align-self: center;
+}
+.remaining-balance h3{
+  font-size: 1.2rem;
+}
+.remaining-balance span{
+  font-size: 1.5rem;
+}
+
 }
