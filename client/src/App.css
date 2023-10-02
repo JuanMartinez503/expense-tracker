@@ -308,7 +308,7 @@ font-size: 1.1rem;
   font-size: 1.5rem;
 }
 .description-container h3{
-  font-size: 1rem;
+  font-size: .85rem;
 }
 .expense-row p{
   font-size: .5rem;
@@ -344,6 +344,10 @@ font-size: 1.1rem;
   width: 100%;
   margin: 0 auto;
   font-size: 1rem !important;
+}
+.expense-update input {
+  width: 30%;
+  font-size: .7rem;
 }
 
 }
