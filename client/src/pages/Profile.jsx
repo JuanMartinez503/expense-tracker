@@ -1,8 +1,33 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import ExpensesComponent from "../components/expensesComponent"
 import AddExpense from "../components/AddExpense"
+import Auth from "../utils/auth"
+import { getSingleUser } from "../utils/API"
 export default function Profile(){
 const [budget, setBudget ]= useState()
+const [userInfo, setUserInfo]=useState()
+useEffect(()=>{
+    const currentUser= Auth.getProfile().data.username.username
+const token = Auth.loggedIn()? Auth.getToken():null
+console.log(token);
+    async function fetchSingleUser(){
+         const response = await getSingleUser(currentUser,token)
+         if (response.ok){
+            const data= await response.json()
+            setUserInfo(data)
+         } else{
+            console.error('there was am error')
+         }
+
+    }
+    fetchSingleUser()
+    console.log(userInfo);
+}
+
+,
+
+[])
+
     return(
         <div>
             <div className="budget-container">
@@ -26,7 +51,7 @@ const [budget, setBudget ]= useState()
                </div>
 
                 <div className="text-center">
-                    <h3>Welcome,user</h3>
+                    <h3>Welcome, {Auth.getProfile().data.username.username}!</h3>
                 </div>
                 
                 </div>
