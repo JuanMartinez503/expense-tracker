@@ -7,22 +7,33 @@ export default function NavBar() {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
-          <Link to="/:userId">Profile</Link>
-        </li>
         <div>
           {Auth.loggedIn() ? (
             <li>
-            
-              <button className="btn btn-danger">Logout</button>
+              <Link to={"/" + Auth.getProfile().data.username.username}>
+                Profile
+              </Link>
             </li>
-        
-          ) : ( <li>
-            <Link to="/login">
+          ) : (
+            <li>
+              <Link to="/login">Profile</Link>
+            </li>
+          )}
+        </div>
+
+        <div>
+          {Auth.loggedIn() ? (
+            <li>
+              <button className="btn btn-danger" onClick={() => Auth.logout()}>
+                Logout
+              </button>
+            </li>
+          ) : (
+            <li>
+              <Link to="/login">
                 <button className="btn btn-primary">Login</button>
               </Link>
-          </li>
-           
+            </li>
           )}
         </div>
       </nav>

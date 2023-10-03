@@ -9,6 +9,10 @@ const userSchema = new Schema(
         required: true,
         unique: true,
       },
+      budget:{
+        type:Number
+        
+      },
       email: {
         type: String,
         required: true,

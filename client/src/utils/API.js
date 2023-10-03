@@ -17,12 +17,12 @@ export const createUser = (user) => {
     });
   };
   export const getSingleUser=(username,token)=>{
-    return fetch(`/api/user${username}/`,{
+    return fetch(`/api/users/${username}`,{
       method:'GET',
       headers:{
         'Content-Type':"application/json",
         authorization:`Bearer ${token}`
-      },
+      }
       
     })
   }

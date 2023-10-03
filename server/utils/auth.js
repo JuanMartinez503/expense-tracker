@@ -8,7 +8,7 @@ module.exports = {
         let token = req.query.token || req.headers.authorization;
 
         if (req.headers.authorization){
-            token= token.split(' ').trim()
+            token= token.split(' ').pop().trim()
         }
         if (!token){
             return res.status(400).json({message:'you do not have a valid token'})
