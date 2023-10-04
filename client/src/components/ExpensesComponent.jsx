@@ -1,43 +1,29 @@
-import { Link } from "react-router-dom";
-export default function ExpensesComponent() {
-  const loopTest = () => {
-    const data = [
-      {
-        amount: "$100",
-        name: "Expense 1",
-        description: "Description 1",
-        date: "2023-09-29",
-      },
-      {
-        amount: "$200",
-        name: "Expense 2",
-        description:
-          "Description nAFDJJFAKDKSKDSMMADVMDSKDCSKKCKSXC KCSKKCSSKKCSKKCSKJCJDSCJJCJKCKKCKdsckkckkd",
-        date: "2023-09-30",
-      },
-      {
-        amount: "$50",
-        name: "Expense 3",
-        description: "Description 3",
-        date: "2023-10-01",
-      },
-      {
-        amount: "$75",
-        name: "Expense 4",
-        description: "Description 4",
-        date: "2023-10-02",
-      },
-    ];
+import { Link} from "react-router-dom";
+import auth from "../utils/auth";
 
-    return data.map((item, index) => (
-      <Link to="/:userId/:expenseId" className="expense-row" key={index}>
+export default function ExpensesComponent({ expenses }) {
+  const loopTest = () => {
+    if (!expenses) {
+      // Return some default content or loading indicator when expenses are undefined
+      return <p>Loading expenses...</p>;
+    }
+
+    return expenses.map((item) => (
+      <Link
+        to={`/${auth.getProfile().data.username.username}/${item._id}`}
+        className="expense-row"
+        key={item._id}
+      >
+     
+        
         <p>
           -<span className="amount-money">{item.amount}</span>
         </p>
         <p>{item.name}</p>
         <p>{item.description}</p>
-        <p>{item.date}</p>
+        <p>{item.createdAt}</p>
       </Link>
+      
     ));
   };
 

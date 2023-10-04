@@ -15,6 +15,9 @@ export default function AddExpense() {
       const response = await createExpense(newExpense,token)
       if (response.ok){
         console.log('new expense was created');
+        setAmount('')
+        setDescription('')
+        setName('')
       } 
     } catch (err) {
       console.log("there was an error",err);

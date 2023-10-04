@@ -1,4 +1,7 @@
+import { useParams } from "react-router-dom";
+
 export default function Expenses() {
+  const {username,expenseId}=useParams()
   return (
     <div>
       <div>

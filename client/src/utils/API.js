@@ -16,16 +16,16 @@ export const createUser = (user) => {
       body: JSON.stringify(user),
     });
   };
-  export const findAllExpenses=(username,token)=>{
-    return fetch(`/api/users/${username}`,{
-      method:'GET',
-      headers:{
-        'Content-Type':"application/json",
-        authorization:`Bearer ${token}`
-      },
+  // export const findAllExpenses=(username,token)=>{
+  //   return fetch(`/api/users/${username}`,{
+  //     method:'GET',
+  //     headers:{
+  //       'Content-Type':"application/json",
+  //       authorization:`Bearer ${token}`
+  //     },
       
-    })
-  }
+  //   })
+  // }
   export const getSingleUser=(username,token)=>{
     return fetch(`/api/users/${username}`,{
       method:'GET',
