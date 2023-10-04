@@ -24,11 +24,10 @@ export default function Profile() {
       }
     }
     fetchSingleUser();
-  }, [currentUser, token]);
+  }, [budget]);
   async function handleUpdateBudget(){
-    const budgetAmount = budget;
     try {
-    const response = await updateBudget(username,token,budgetAmount)
+    const response = await updateBudget(username,token,budget)
         if(response.ok){
             console.log("the budget was updated");
         }
