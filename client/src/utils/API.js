@@ -16,6 +16,16 @@ export const createUser = (user) => {
       body: JSON.stringify(user),
     });
   };
+  export const findAllExpenses=(username,token)=>{
+    return fetch(`/api/users/${username}`,{
+      method:'GET',
+      headers:{
+        'Content-Type':"application/json",
+        authorization:`Bearer ${token}`
+      },
+      
+    })
+  }
   export const getSingleUser=(username,token)=>{
     return fetch(`/api/users/${username}`,{
       method:'GET',
@@ -36,5 +46,13 @@ export const createUser = (user) => {
       body: JSON.stringify({ budget }), // Wrap the budget in an object
     });
   };
-  
+  export const createExpense =(expense,token)=>{
+    return fetch("/api/expenses",{
+      method:"POST",
+      headers:{"Content-Type":"application/json",
+    authorization:`Bearer ${token}`
+  },
+  body:JSON.stringify(expense)
+    })
+  }
 

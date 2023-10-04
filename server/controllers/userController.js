@@ -72,7 +72,15 @@ module.exports = {
         .status(500)
         .json({ message: "there was an error updating the budget" });
     }
-  },
+  },async findAllExpenses(req,res){
+    try {
+      const expenses = Expenses.find({username:req.params.username})
+      res.json(expenses)
+    } catch (err) {
+      res.status(500).json({message:"there was an error getting the expenses"})
+    }
+  }
+  ,
   async singleExpense(req, res) {
     try {
       const expense = await Expenses.findById(req.params._id);

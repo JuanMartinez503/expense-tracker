@@ -14,8 +14,8 @@ module.exports = {
   async createExpense(req, res) {
     try {
       const expense = await Expenses.create(req.body);
-      const user = await User.findByIdAndUpdate(
-        req.user._id,
+      const user = await User.findOneAndUpdate({username:req.body.username}
+    ,
         { $addToSet: { expenses: expense._id } },
         { new: true, runValidators: true }
       );
