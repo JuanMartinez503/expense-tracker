@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ExpensesComponent from "../components/expensesComponent";
 import AddExpense from "../components/AddExpense";
 import Auth from "../utils/auth";
-import { getSingleUser } from "../utils/API";
+import { getSingleUser,updateBudget } from "../utils/API";
 
 export default function Profile() {
   const [budget, setBudget] = useState();
@@ -25,6 +25,18 @@ export default function Profile() {
     }
     fetchSingleUser();
   }, [currentUser, token]);
+  async function handleUpdateBudget(){
+    const budgetAmount = budget;
+    try {
+    const response = await updateBudget(username,token,budgetAmount)
+        if(response.ok){
+            console.log("the budget was updated");
+        }
+    } catch (err) {
+        console.error('There was a mistake updating the budget', err.message)
+    }
+    
+  }
   
   console.log(userInfo);
 
@@ -34,7 +46,7 @@ export default function Profile() {
   return (
     <div>
       <div className="budget-container">
-        <form action="">
+        <form onSubmit={()=>handleUpdateBudget()}>
           <h2>Enter your budget!</h2>
           <input
             type="number"
@@ -50,7 +62,7 @@ export default function Profile() {
       <div className="welcome-container mt-3">
         <div className="text-center">
           <h3 className="text-left  ">
-            Current Budget: $<span className="budget-price">{userInfo?.id}</span>
+            Current Budget: $<span className="budget-price">{userInfo?.budget}</span>
           </h3>
         </div>
 

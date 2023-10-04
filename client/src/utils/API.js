@@ -16,13 +16,21 @@ export const createUser = (user) => {
       body: JSON.stringify(user),
     });
   };
-  export const getSingleUser=(username,token)=>{
+  export const getSingleUser=(username,token,budget)=>{
     return fetch(`/api/users/${username}`,{
       method:'GET',
       headers:{
         'Content-Type':"application/json",
         authorization:`Bearer ${token}`
-      }
+      },
+      body:JSON.stringify(budget)
       
+    })
+  }
+  export const updateBudget=(username, token)=>{
+    return fetch(`/api/users/${username}`,{
+      method:'PUT',
+      headers:{'Content-Type':'application/json',
+      authorization:`Bearer ${token}`}
     })
   }

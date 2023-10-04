@@ -10,7 +10,8 @@ const userSchema = new Schema(
         unique: true,
       },
       budget:{
-        type:Number
+        type:Number,
+        default:0
         
       },
       email: {

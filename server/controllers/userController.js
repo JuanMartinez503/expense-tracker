@@ -63,7 +63,7 @@ module.exports = {
 
   async updateBudget(req, res) {
     try {
-      const budget = await Budget.findByIdAndUpdate(req.user.id);
+      const budget = await Budget.findOneAndUpdate({username:req.params.username},{$set:req.body},{new:true});
       res.json(budget);
     } catch {
       res
