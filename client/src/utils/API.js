@@ -75,3 +75,12 @@ export const updateExpense = (updatedExpense,expensesId, token) => {
     body:JSON.stringify(updatedExpense)
   });
 };
+export const deleteExpense=(username,expensesId, token)=>{
+return fetch(`/api/users/${username}/${expensesId}`,{
+  method:"DELETE",
+  headers:{
+    "Content-Type":"application/json",
+    authorization:`Bearer ${token}`
+  }
+})
+}

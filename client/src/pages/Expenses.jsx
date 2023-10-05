@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import auth from "../utils/auth";
-import { singleExpense, updateExpense } from "../utils/API";
+import { singleExpense, updateExpense, deleteExpense } from "../utils/API";
 
 export default function Expenses() {
   const { username, expensesId } = useParams();
@@ -22,7 +22,7 @@ export default function Expenses() {
           setExpense(data);
 
           // Set the initial state for name, amount, and description
-          setName(data.name|| "");
+          setName(data.name || "");
           setAmount(data.amount || "");
           setDescription(data.description || "");
         }
@@ -33,18 +33,28 @@ export default function Expenses() {
     fetchSingleExpense();
   }, []);
 
-  async function handleUpdatedExpense (){
-    const updatedExpense = {name,amount,description}
-  try {
-    const response = await updateExpense(updatedExpense,expensesId,token)
-    if(response.ok){
-      console.log("Expense was updated successfully");
-      window.location.replace(`/${username}`)
+  async function handleUpdatedExpense() {
+    const updatedExpense = { name, amount, description };
+    try {
+      const response = await updateExpense(updatedExpense, expensesId, token);
+      if (response.ok) {
+        console.log("Expense was updated successfully");
+        window.location.replace(`/${username}`);
+      }
+    } catch (err) {
+      console.error(err);
     }
-    
-  } catch (err) {
-    console.error(err)
   }
+  async function handleDeleteExpense() {
+    try {
+      const response = await deleteExpense(username, expensesId, token);
+      if (response.ok) {
+        console.log("Expense was deleted successfully");
+        window.location.replace(`/${username}`);
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
 
   const handleName = (e) => {
@@ -70,23 +80,36 @@ export default function Expenses() {
         </div>
       </div>
 
-        <div className="expense-update">
-          {!expense ? (
-            <div>Loading...</div>
-          ) : (
-            <>
-              <input type="number" value={amount} onChange={handleAmount}/>
-              <input type="text" value={name} onChange={handleName}/>
-              <input type="text" value={description} onChange={handleDescription} />
-            </>
-          )}
-        </div>
+      <div className="expense-update">
+        {!expense ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            <input type="number" value={amount} onChange={handleAmount} />
+            <input type="text" value={name} onChange={handleName} />
+            <input
+              type="text"
+              value={description}
+              onChange={handleDescription}
+            />
+          </>
+        )}
+      </div>
 
-        <div className="update-delete-btn text-center mt-2">
-          <button className="btn btn-warning"onClick={()=>handleUpdatedExpense()}>Update</button>
-          <button className="btn btn-danger">Delete</button>
-        </div>
-      
+      <div className="update-delete-btn text-center mt-2">
+        <button
+          className="btn btn-warning"
+          onClick={() => handleUpdatedExpense()}
+        >
+          Update
+        </button>
+        <button
+          className="btn btn-danger"
+          onClick={() => handleDeleteExpense()}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
