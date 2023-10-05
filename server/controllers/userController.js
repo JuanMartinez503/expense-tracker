@@ -81,16 +81,16 @@ module.exports = {
     }
   }
   ,
-  async singleExpense(req, res) {
-    try {
-      const expense = await Expenses.findById(req.params._id);
-      res.json(expense);
-    } catch (err) {
-      res
-        .status(500)
-        .json({ message: "there was an error retrieving single expenses" });
-    }
-  },
+  // async singleExpense(req, res) {
+  //   try {
+  //     const expense = await Expenses.findOne({_id:req.params._id});
+  //     res.json(expense);
+  //   } catch (err) {
+  //     res
+  //       .status(500)
+  //       .json({ message: "there was an error retrieving single expenses" });
+  //   }
+  // },
   async updateExpense(req, res) {
     try {
       const expense = await Expenses.findByIdAndUpdate(req.params._id);

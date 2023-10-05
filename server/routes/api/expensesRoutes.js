@@ -1,5 +1,5 @@
 const {
-  // singleExpense,
+  singleExpense,
   createExpense,
   // updateExpense,
   // deleteExpense,
@@ -7,9 +7,7 @@ const {
 const { authMiddleware } = require("../../utils/auth");
 const router = require("express").Router();
 router.route("/").post(authMiddleware, createExpense);
-// router
-//   .route(":/expenseId")
-//   .get(authMiddleware, singleExpense)
+router.route("/:expensesId").get(authMiddleware, singleExpense)
 //   .delete(authMiddleware, deleteExpense)
 //   .put(authMiddleware, updateExpense);
 

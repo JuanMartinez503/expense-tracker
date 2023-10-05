@@ -1,16 +1,16 @@
 const { Expenses, User } = require("../models");
 
 module.exports = {
-//   async singleExpense(req, res) {
-//     try {
-//       const expense = await Expenses.findById(req.params._id);
-//       res.json(expense);
-//     } catch (err) {
-//       res
-//         .status(500)
-//         .json({ message: "there was an error retrieving single expenses" });
-//     }
-//   },
+  async singleExpense(req, res) {
+    try {
+      const expense = await Expenses.findOne({_id:req.params.expensesId});
+      res.json(expense);
+    } catch (err) {
+      res
+        .status(500)
+        .json({ message: "there was an error retrieving single expenses" });
+    }
+  },
   async createExpense(req, res) {
     try {
       const expense = await Expenses.create(req.body);

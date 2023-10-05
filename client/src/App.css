@@ -240,6 +240,7 @@ color: var(--light);
   
 }
 .expense-update input{
+  color: var(--darker);
 width: 25%;
 height: 5rem;
 padding: 2%;

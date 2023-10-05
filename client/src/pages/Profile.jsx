@@ -38,6 +38,7 @@ export default function Profile() {
       console.error("There was a mistake updating the budget", err.message);
     }
   }
+  
 
   // Access the username property of userInfo or provide a default value
   const username = userInfo ? userInfo.username : "";
