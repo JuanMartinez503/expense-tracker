@@ -1,7 +1,30 @@
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import auth from "../utils/auth";
 
-export default function ExpensesComponent({ expenses }) {
+export default function ExpensesComponent({ expenses, budget }) {
+  const calculateRemainingBudget = () => {
+    if (!expenses || expenses.length === 0) {
+      return budget; // If no expenses, remaining budget is the same as the initial budget
+    }
+
+    // Calculate the total expense amount by summing up all expense amounts
+    const totalExpenseAmount = expenses.reduce(
+      (total, item) => total + item.amount,
+      0
+    );
+
+    // Calculate the remaining budget by subtracting the total expense amount from the initial budget
+    const remainingBudget = budget - totalExpenseAmount;
+
+    return remainingBudget;
+  };
+
+  const remainingBudget = calculateRemainingBudget();
+  const formatDate = (date) => {
+    const options = { year: 'numeric', day: 'numeric', month: 'numeric' };
+    return new Date(date).toLocaleDateString(undefined, options);
+  };
+
   const loopTest = () => {
     if (!expenses) {
       // Return some default content or loading indicator when expenses are undefined
@@ -14,16 +37,13 @@ export default function ExpensesComponent({ expenses }) {
         className="expense-row"
         key={item._id}
       >
-     
-        
         <p>
-          -<span className="amount-money">{item.amount}</span>
+          - <span className="amount-money">{item.amount}</span>
         </p>
         <p>{item.name}</p>
         <p>{item.description}</p>
-        <p>{item.createdAt}</p>
+        <p>{formatDate(item.createdAt)}</p>
       </Link>
-      
     ));
   };
 
@@ -38,7 +58,13 @@ export default function ExpensesComponent({ expenses }) {
       <div className="expenses-loop">{loopTest()}</div>
       <div className="remaining-balance mb-3">
         <h3>
-          Remaining Balance: $ <span>100</span>
+          Remaining Balance: $ <span>{remainingBudget<0 ?(
+            <span id="exceeded">
+              Budget exceeded!
+            </span>
+          ):(
+            <span>{remainingBudget}</span>
+          )}</span>
         </h3>
       </div>
     </div>

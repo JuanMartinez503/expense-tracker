@@ -117,8 +117,12 @@ font-size: 1.9rem;
   color: var(--light);
   box-shadow: 1px 1px 3px var(--light) inset;}
 
+  .budget-container{
+   
+  }
  .budget-container form{
-width: 50%;
+
+width: 30%;
 padding: 2%;
 margin: 0 auto;
  }
@@ -230,7 +234,7 @@ color: var(--light);
   margin-right: 200px;
 }
 .amount-money {
-  color: #ff4545;
+  color: rgb(255, 0, 0);
 }
 .expense-update{
   display: flex;
@@ -256,6 +260,9 @@ box-shadow: 1px 1px 3px var(--light);
 .update-delete-btn button {
   margin: 1%;
   width: 5rem;
+}
+#exceeded{
+  color: red;
 }
 
 @media screen and (max-width:640px){

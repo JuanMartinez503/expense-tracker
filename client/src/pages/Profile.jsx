@@ -47,7 +47,7 @@ export default function Profile() {
     <div>
       <div className="budget-container">
         <form onSubmit={handleUpdateBudget}>
-          <h2>Enter your budget!</h2>
+          <h2 >Enter your budget!</h2>
           <input
             type="number"
             id="budget"
@@ -64,7 +64,7 @@ export default function Profile() {
         <div className="text-center">
           <h3 className="text-left  ">
             Current Budget: $
-            <span className="budget-price">{userInfo?.budget}</span>
+            <span className="budget-price">{userInfo?.budget.toLocaleString()}</span>
           </h3>
         </div>
 
@@ -73,7 +73,7 @@ export default function Profile() {
         </div>
       </div>
       <div className="expenses-container">
-        <ExpensesComponent expenses={userInfo?.expenses} />
+        <ExpensesComponent expenses={userInfo?.expenses} budget={userInfo?.budget} />
       </div>
       <div className="adding-expense">
         <AddExpense />

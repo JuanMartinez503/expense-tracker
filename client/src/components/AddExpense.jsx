@@ -2,9 +2,9 @@ import { useState } from "react";
 import { createExpense } from "../utils/API";
 import Auth from "../utils/auth";
 export default function AddExpense() {
-  const [amount, setAmount]=useState()
-  const [name, setName]= useState()
-  const [description, setDescription]=useState()
+  const [amount, setAmount]=useState('')
+  const [name, setName]= useState('')
+  const [description, setDescription]=useState('')
   async function handleNewExpenses(e) {
     e.preventDefault()
     const token= Auth.loggedIn() ? Auth.getToken() : null 
