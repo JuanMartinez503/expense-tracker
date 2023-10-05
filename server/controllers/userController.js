@@ -93,9 +93,9 @@ module.exports = {
   // },
   async updateExpense(req, res) {
     try {
-      const expense = await Expenses.findByIdAndUpdate(req.params._id);
-      const user = await User.findByIdAndUpdate(
-        req.user._id,
+      const expense = await Expenses.findByIdAndUpdate(req.params.expensesId);
+      const user = await User.findOneAndUpdate(
+        {username:req.params.username},
         { $set: { expenses: expense._id } },
         { runValidators: true, new: true }
       );
@@ -113,10 +113,10 @@ module.exports = {
   },
   async deleteExpense(req, res) {
     try {
-      const expense = await Expenses.findByIdAndDelete(req.params._id);
+      const expense = await Expenses.findByIdAndDelete(req.params.expensesId);
       const user = await User.findOneAndUpdate(
-        { username: expense.username },
-        { $pull: { expenses: req.params._id } },
+        { username: req.params.username },
+        { $pull: { expenses: expense._id } },
         { runValidators: true, new: true }
       );
       if (!user) {
