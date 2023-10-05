@@ -65,3 +65,13 @@ export const singleExpense = (expensesId, token) => {
     }
   });
 };
+export const updateExpense = (updatedExpense,expensesId, token) => {
+  return fetch(`/api/expenses/${expensesId}`, {
+    method:"PUT",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body:JSON.stringify(updatedExpense)
+  });
+};

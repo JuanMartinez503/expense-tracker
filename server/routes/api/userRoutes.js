@@ -3,7 +3,7 @@ const {
   createUser,
   login,
   updateBudget,
-  updateExpense,
+  // updateExpense,
   getBudget,
   singleExpense,
   deleteExpense,
@@ -15,5 +15,5 @@ const { authMiddleware } = require("../../utils/auth");
 router.route("/").post(createUser);
 router.route("/login").post(login);
 router.route("/:username").get(authMiddleware, getSingleUser).put(authMiddleware,updateBudget)
-router.route('/:username/:expensesId').put(authMiddleware,updateExpense).delete(authMiddleware,deleteExpense)
+router.route('/:username/:expensesId').delete(authMiddleware,deleteExpense)
 module.exports = router;

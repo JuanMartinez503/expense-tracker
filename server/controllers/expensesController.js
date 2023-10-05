@@ -31,6 +31,18 @@ module.exports = {
         .json({ message: "there was an error creating this Expense" }, err);
     }
   },
+  async updateExpense(req, res) {
+    try {
+      const expense = await Expenses.findByIdAndUpdate(req.params.expensesId,{$set:req.body},{new:true});
+
+
+      res.status(201).json({ message: "Expense was updated successfully" });
+    } catch (err) {
+      res
+        .status(500)
+        .json({ message: "there was an error updating this Expense" }, err);
+    }
+  },
 //   async updateExpense(req, res) {
 //     try {
 //       const expense = await Expenses.findByIdAndUpdate(req.params._id);

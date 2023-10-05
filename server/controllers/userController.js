@@ -91,26 +91,18 @@ module.exports = {
   //       .json({ message: "there was an error retrieving single expenses" });
   //   }
   // },
-  async updateExpense(req, res) {
-    try {
-      const expense = await Expenses.findByIdAndUpdate(req.params.expensesId);
-      const user = await User.findOneAndUpdate(
-        {username:req.params.username},
-        { $set: { expenses: expense._id } },
-        { runValidators: true, new: true }
-      );
-      if (!user) {
-        return res
-          .status(404)
-          .json({ message: "Expense was updated but no user was found" });
-      }
-      res.status(201).json({ message: "Expense was updated successfully" });
-    } catch (err) {
-      res
-        .status(500)
-        .json({ message: "there was an error updating this Expense" }, err);
-    }
-  },
+  // async updateExpense(req, res) {
+  //   try {
+  //     const expense = await Expenses.findByIdAndUpdate(req.params.expensesId,{$set:req.body},{new:true});
+
+
+  //     res.status(201).json({ message: "Expense was updated successfully" });
+  //   } catch (err) {
+  //     res
+  //       .status(500)
+  //       .json({ message: "there was an error updating this Expense" }, err);
+  //   }
+  // },
   async deleteExpense(req, res) {
     try {
       const expense = await Expenses.findByIdAndDelete(req.params.expensesId);

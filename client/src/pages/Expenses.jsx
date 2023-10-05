@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import auth from "../utils/auth";
-import { singleExpense } from "../utils/API";
+import { singleExpense, updateExpense } from "../utils/API";
 
 export default function Expenses() {
   const { username, expensesId } = useParams();
@@ -33,6 +33,20 @@ export default function Expenses() {
     fetchSingleExpense();
   }, []);
 
+  async function handleUpdatedExpense (){
+    const updatedExpense = {name,amount,description}
+  try {
+    const response = await updateExpense(updatedExpense,expensesId,token)
+    if(response.ok){
+      console.log("Expense was updated successfully");
+      window.location.replace(`/${username}`)
+    }
+    
+  } catch (err) {
+    console.error(err)
+  }
+  }
+
   const handleName = (e) => {
     e.preventDefault();
     setName(e.target.value);
@@ -55,7 +69,7 @@ export default function Expenses() {
           <h3>Description</h3>
         </div>
       </div>
-      <form action="">
+
         <div className="expense-update">
           {!expense ? (
             <div>Loading...</div>
@@ -69,10 +83,10 @@ export default function Expenses() {
         </div>
 
         <div className="update-delete-btn text-center mt-2">
-          <button className="btn btn-warning">Update</button>
+          <button className="btn btn-warning"onClick={()=>handleUpdatedExpense()}>Update</button>
           <button className="btn btn-danger">Delete</button>
         </div>
-      </form>
+      
     </div>
   );
 }
