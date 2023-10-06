@@ -1,4 +1,4 @@
-const { User, Budget, Expenses } = require("../models");
+const { User, Expenses } = require("../models");
 
 const { signToken } = require("../utils/auth");
 
@@ -27,7 +27,7 @@ module.exports = {
       res
         .status(500)
         .json({ message: "There was a problem creating the user", err });
-        console.log(err)
+      console.log(err);
     }
   },
   async login({ body }, res) {
@@ -63,8 +63,11 @@ module.exports = {
 
   async updateBudget(req, res) {
     try {
-      const budget= await User.findOneAndUpdate({username:req.params.username},{$set:req.body},{new:true});
-
+      const budget = await User.findOneAndUpdate(
+        { username: req.params.username },
+        { $set: req.body },
+        { new: true }
+      );
 
       res.json(budget);
     } catch {
@@ -72,37 +75,17 @@ module.exports = {
         .status(500)
         .json({ message: "there was an error updating the budget" });
     }
-  },async findAllExpenses(req,res){
+  },
+  async findAllExpenses(req, res) {
     try {
-      const expenses = Expenses.find({username:req.params.username})
-      res.json(expenses)
+      const expenses = Expenses.find({ username: req.params.username });
+      res.json(expenses);
     } catch (err) {
-      res.status(500).json({message:"there was an error getting the expenses"})
+      res
+        .status(500)
+        .json({ message: "there was an error getting the expenses" });
     }
-  }
-  ,
-  // async singleExpense(req, res) {
-  //   try {
-  //     const expense = await Expenses.findOne({_id:req.params._id});
-  //     res.json(expense);
-  //   } catch (err) {
-  //     res
-  //       .status(500)
-  //       .json({ message: "there was an error retrieving single expenses" });
-  //   }
-  // },
-  // async updateExpense(req, res) {
-  //   try {
-  //     const expense = await Expenses.findByIdAndUpdate(req.params.expensesId,{$set:req.body},{new:true});
-
-
-  //     res.status(201).json({ message: "Expense was updated successfully" });
-  //   } catch (err) {
-  //     res
-  //       .status(500)
-  //       .json({ message: "there was an error updating this Expense" }, err);
-  //   }
-  // },
+  },
   async deleteExpense(req, res) {
     try {
       const expense = await Expenses.findByIdAndDelete(req.params.expensesId);

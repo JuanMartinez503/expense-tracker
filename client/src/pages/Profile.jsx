@@ -42,7 +42,7 @@ export default function Profile() {
 
   // Access the username property of userInfo or provide a default value
   const username = userInfo ? userInfo.username : "";
-console.log(userInfo);
+
   return (
     <div>
       <div className="budget-container">

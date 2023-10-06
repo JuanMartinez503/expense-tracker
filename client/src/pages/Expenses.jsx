@@ -8,7 +8,7 @@ export default function Expenses() {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
-  console.log(expensesId);
+  
   const [expense, setExpense] = useState({}); // Initialize to null
   const token = auth.loggedIn() ? auth.getToken() : null;
 
@@ -18,7 +18,7 @@ export default function Expenses() {
         const response = await singleExpense(expensesId, token);
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
+          
           setExpense(data);
 
           // Set the initial state for name, amount, and description

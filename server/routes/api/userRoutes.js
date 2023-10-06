@@ -3,11 +3,7 @@ const {
   createUser,
   login,
   updateBudget,
-  // updateExpense,
-  getBudget,
-  singleExpense,
   deleteExpense,
-  findAllExpenses
 } = require("../../controllers/userController");
 const router = require("express").Router();
 const { authMiddleware } = require("../../utils/auth");
