@@ -9,6 +9,10 @@
     "install": "cd server && npm i ../client && npm i",
     "build": "cd client && npm run build"
   },
+  "engines": {
+      "node": "14.x",
+      "npm": "6.x"
+  },
   "devDependencies": {
     "concurrently": "^8.2.1"
   },
