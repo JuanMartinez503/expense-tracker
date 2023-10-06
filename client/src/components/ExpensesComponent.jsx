@@ -69,6 +69,7 @@ export default function ExpensesComponent({ expenses, budget }) {
     ));
   };
 
+  
   return (
     <div>
       <div className="description-container">
