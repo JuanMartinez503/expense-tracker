@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ExpensesComponent from "../components/expensesComponent";
+import ExpensesComponent from "../components/ExpensesComponent";
 import AddExpense from "../components/AddExpense";
 import Auth from "../utils/auth";
 import { getSingleUser, updateBudget } from "../utils/API";
