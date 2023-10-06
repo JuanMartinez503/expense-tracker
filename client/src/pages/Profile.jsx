@@ -42,7 +42,7 @@ export default function Profile() {
 
   // Access the username property of userInfo or provide a default value
   const username = userInfo ? userInfo.username : "";
-
+console.log(userInfo);
   return (
     <div>
       <div className="budget-container">
@@ -72,9 +72,15 @@ export default function Profile() {
           <h3>Welcome, {username}!</h3>
         </div>
       </div>
-      <div className="expenses-container">
-        <ExpensesComponent expenses={userInfo?.expenses} budget={userInfo?.budget} />
-      </div>
+      {userInfo?.expenses.length===0 && userInfo.expenses ? (
+        <h2 className="text-center dark-bg p-3 m-3">No Expenses!</h2 >
+
+    
+      ): (     <div className="expenses-container">
+      <ExpensesComponent expenses={userInfo?.expenses} budget={userInfo?.budget} />
+    </div>
+      )}
+    
       <div className="adding-expense">
         <AddExpense />
       </div>

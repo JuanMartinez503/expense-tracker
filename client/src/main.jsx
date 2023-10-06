@@ -21,11 +21,11 @@ const router= createBrowserRouter([{
       element:<Home />
     },
     {
-      path:'/:username',
+      path:'/profile/:username',
       element:<Profile />
     },
     {
-      path:'/:username/:expensesId',
+      path:'/profile/:username/:expensesId',
       element:<Expenses />
     },
     {

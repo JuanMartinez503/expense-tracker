@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
-import auth from "../utils/auth";
+import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import auth from '../utils/auth';
 
 export default function ExpensesComponent({ expenses, budget }) {
+  const [showWarning, setShowWarning] = useState(false);
+
   const calculateRemainingBudget = () => {
     if (!expenses || expenses.length === 0) {
       return budget; // If no expenses, remaining budget is the same as the initial budget
@@ -20,10 +23,29 @@ export default function ExpensesComponent({ expenses, budget }) {
   };
 
   const remainingBudget = calculateRemainingBudget();
+
+
+
+
   const formatDate = (date) => {
     const options = { year: 'numeric', day: 'numeric', month: 'numeric' };
     return new Date(date).toLocaleDateString(undefined, options);
   };
+
+  useEffect(() => {
+    if (remainingBudget < budget * 0.1 && remainingBudget > 0) {
+      // Show the warning message
+      setShowWarning(true);
+
+      // Set a timeout to hide the message after, for example, 5 seconds
+      const timeoutId = setTimeout(() => {
+        setShowWarning(false);
+      }, 5000); // 5000 milliseconds (5 seconds)
+
+      // Clean up the timeout when the component unmounts or when showWarning changes
+      return () => clearTimeout(timeoutId);
+    }
+  }, [remainingBudget, budget]);
 
   const loopTest = () => {
     if (!expenses) {
@@ -33,12 +55,12 @@ export default function ExpensesComponent({ expenses, budget }) {
 
     return expenses.map((item) => (
       <Link
-        to={`/${auth.getProfile().data.username.username}/${item._id}`}
+        to={`/profile/${auth.getProfile().data.username.username}/${item._id}`}
         className="expense-row"
         key={item._id}
       >
         <p>
-          - <span className="amount-money">{item.amount}</span>
+          - <span className="amount-money">{ item.amount ? item.amount.toLocaleString(): 'N/A'}</span>
         </p>
         <p>{item.name}</p>
         <p>{item.description}</p>
@@ -58,15 +80,22 @@ export default function ExpensesComponent({ expenses, budget }) {
       <div className="expenses-loop">{loopTest()}</div>
       <div className="remaining-balance mb-3">
         <h3>
-          Remaining Balance: $ <span>{remainingBudget<0 ?(
-            <span id="exceeded">
-              Budget exceeded!
-            </span>
-          ):(
-            <span>{remainingBudget}</span>
-          )}</span>
+          Remaining Balance: ${' '}
+          <span>
+            {remainingBudget < 0 ? (
+              <span id="exceeded">Budget exceeded!</span>
+            ) : (
+              <span>{remainingBudget ? remainingBudget.toLocaleString():'N/A'}</span>
+            )}
+          </span>
         </h3>
+        {showWarning && (
+          <p className='mt-4 text-center warning alert alert-warning'>
+            Your remaining budget is less than 10% of the initial budget.
+          </p>
+        )}
       </div>
+    
     </div>
   );
 }

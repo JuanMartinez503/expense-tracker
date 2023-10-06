@@ -10,7 +10,7 @@ export default function NavBar() {
         <div>
           {Auth.loggedIn() ? (
             <li>
-              <Link to={"/" + Auth.getProfile().data.username.username}>
+              <Link to={"/profile/" + Auth.getProfile().data.username.username}>
                 Profile
               </Link>
             </li>
