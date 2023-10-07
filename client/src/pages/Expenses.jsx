@@ -39,7 +39,10 @@ export default function Expenses() {
       const response = await updateExpense(updatedExpense, expensesId, token);
       if (response.ok) {
         console.log("Expense was updated successfully");
-        window.location.replace(`/profile/${auth.getProfile().data.username.username}`);
+        setTimeout(() => {
+          window.location.replace(`/profile/${auth.getProfile().data.username.username}`);
+        }, 100); // Delay for 100 milliseconds
+        
       }
     } catch (err) {
       console.error(err);
@@ -50,7 +53,10 @@ export default function Expenses() {
       const response = await deleteExpense(username, expensesId, token);
       if (response.ok) {
         console.log("Expense was deleted successfully");
-        window.location.replace(`/profile/${auth.getProfile().data.username.username}`);
+        setTimeout(() => {
+          window.location.replace(`/profile/${auth.getProfile().data.username.username}`);
+        }, 100); // Delay for 100 milliseconds
+        
       }
     } catch (err) {
       console.error(err);
