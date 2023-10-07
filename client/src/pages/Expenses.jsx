@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+
+import { useParams,useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
 import { singleExpense, updateExpense, deleteExpense } from "../utils/API";
 
 export default function Expenses() {
+  const navigate = useNavigate()
   const { username, expensesId } = useParams();
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
@@ -39,9 +41,9 @@ export default function Expenses() {
       const response = await updateExpense(updatedExpense, expensesId, token);
       if (response.ok) {
         console.log("Expense was updated successfully");
-        window.location.reload(true);
+      
 
-        window.location.replace(`/profile/${auth.getProfile().data.username.username}`);
+        navigate(`/profile/${auth.getProfile().data.username.username}`);
       }
     } catch (err) {
       console.error(err);
@@ -52,9 +54,9 @@ export default function Expenses() {
       const response = await deleteExpense(username, expensesId, token);
       if (response.ok) {
         console.log("Expense was deleted successfully");
-        window.location.reload(true);
+        
 
-        window.location.replace(`/profile/${auth.getProfile().data.username.username}`);
+        navigate(`/profile/${auth.getProfile().data.username.username}`);
       }
     } catch (err) {
       console.error(err);
