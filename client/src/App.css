@@ -256,6 +256,9 @@ nav li button {
   border-radius: 20px;
   box-shadow: 1px 1px 5px var(--light);
 }
+.expenses-form button{
+  width: 6rem;
+}
 
 .welcome-container {
   display: flex !important;
@@ -342,12 +345,12 @@ footer {
   }
 
   .home-body img {
-    width: 80%;
+    width: 90%;
     margin: 2% auto;
   }
 
   .key-features {
-    width: 80%;
+    width: 90%;
     margin: 1% auto;
   }
 
@@ -391,7 +394,7 @@ footer {
   }
 
   .expense-row p {
-    font-size: 0.5rem;
+    font-size: 0.8rem;
     text-align: center;
     align-self: center;
   }

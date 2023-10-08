@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div>
-      <div className="home-main p-2 text-center mb-4">
+      <div className="home-main p-2 text-center ">
         <h2>
           Tracking your expenses has never been this simple. Expense Tracker is
           here to help you take control of your financial life. Say goodbye to
