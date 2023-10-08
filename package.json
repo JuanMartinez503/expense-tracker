@@ -15,8 +15,5 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.1"
-  },
-  "dependencies": {
-    "client": "file:client"
   }
 }
