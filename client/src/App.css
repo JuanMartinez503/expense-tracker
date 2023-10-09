@@ -154,7 +154,7 @@ nav li button {
 .budget-container form {
   text-align: center;
   width: 50%;
-  border: 1px solid;
+
   margin: 3% auto;
 }
 
@@ -246,25 +246,30 @@ nav li button {
   margin-left: 2%;
   display: flex;
   flex-wrap: wrap;
+  
 }
 
-.expenses-form h4 {
-  width: 100%;
-  color: var(--yellow);
+
+
+.expenses-form div {
+  width: 50%;
+  margin-bottom: 1%;
+  text-align: left;
+}
+.expenses-form label{
+  text-align: left;
+  width: 15%;
 }
 
-.expenses-form-input {
-  width: 85% !important;
-}
 
 .expenses-form input {
   padding: 1%;
-  width: 25%;
+  width: 65%;
   margin-right: 3%;
   border-radius: 20px;
   box-shadow: 1px 1px 5px var(--light);
 }
-.expenses-form button{
+.expenses-form-btn{
   width: 6rem;
 }
 
@@ -431,23 +436,24 @@ footer {
     flex-wrap: wrap;
   }
 
-  .expenses-form h4 {
-    display: block;
+  .expenses-form  div{
     width: 100%;
-    font-size: 1rem !important;
+    margin-bottom: 2%;
   }
+  .expenses-form label{
+    width: 30%;
+  }
+  
 
   .expenses-form input {
-    width: 25% !important;
+    width: 65% !important;
     margin-right: 5%;
     margin-bottom: 2%;
   }
 
-  .expenses-form-input {
-    width: 100% !important;
-  }
 
-  .expenses-form button {
+
+  .expenses-form-btn {
     display: block !important;
     width: 100%;
     margin: 5% auto;
@@ -465,5 +471,23 @@ footer {
 
   .warning {
     font-size: 0.6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    zoom: 1.2;
+  }
+}
+
+@media (min-width: 2560px) {
+  html {
+    zoom: 1.7;
+  }
+}
+
+@media (min-width: 3860px) {
+  html {
+    zoom: 2.5;
   }
 }

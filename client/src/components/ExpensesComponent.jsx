@@ -28,8 +28,8 @@ export default function ExpensesComponent({ expenses, budget }) {
 
   const formatDate = (date) => {
     const dateObj = new Date(date);
-    const day = dateObj.getDate()+1;
-    const month = dateObj.getMonth() + 1; // Adding 1 because months are zero-based
+    const day = dateObj.getUTCDate();
+    const month = dateObj.getUTCMonth()+1; // Adding 1 because months are zero-based
     const year = dateObj.getFullYear();
   
     // Ensure day and month have two digits (e.g., '01' instead of '1')
