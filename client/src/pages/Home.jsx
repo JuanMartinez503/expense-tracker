@@ -24,8 +24,7 @@ export default function Home() {
               category-specific budgets.
             </li>
             <li>
-              Visualize Your Spending: Get insights with intuitive charts and
-              graphs that help you understand your spending habits.
+              Visualize Your Spending: Gain valuable insights through real-time calculations and track your remaining budget to help you better understand your spending habits.
             </li>
             <li>
               Secure and Private: Your financial data is safe and protected with

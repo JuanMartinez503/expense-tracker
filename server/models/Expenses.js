@@ -14,18 +14,16 @@ const expensesSchema = new Schema({
     },
     description:{
         type:String,
-        required:true,
+        
     },
     createdAt:{
         type:Date,
-        default:Date.now(),
-        get:function(value){
-            return new Date(value).toISOString()
-        }
+        required:true,
     }
 },{
     toJSON:{virtuals:true},
-    id:false
+    id:false,
+    timestamps:true
 })
 const Expenses= model("Expenses",expensesSchema)
 module.exports = Expenses;

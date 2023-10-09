@@ -3,7 +3,7 @@ const { Expenses, User } = require("../models");
 module.exports = {
   async singleExpense(req, res) {
     try {
-      const expense = await Expenses.findOne({_id:req.params.expensesId});
+      const expense = await Expenses.findOne({_id:req.params.expensesId});;
       res.json(expense);
     } catch (err) {
       res

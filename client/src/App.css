@@ -92,6 +92,7 @@ nav li button {
 
 .key-features li {
   font-size: 1.5rem;
+  margin-bottom: 1%;
 }
 
 .key-features h3 {
@@ -138,6 +139,9 @@ nav li button {
   background-color: var(--darker) !important;
   box-shadow: 1px 1px 3px var(--light) inset;
 }
+.username-welcome{
+  font-size: 3rem;
+}
 
 #sign-up {
   background-color: var(--dark);
@@ -148,9 +152,10 @@ nav li button {
 .budget-container {}
 
 .budget-container form {
-  width: 30%;
-  padding: 2%;
-  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  border: 1px solid;
+  margin: 3% auto;
 }
 
 .budget-container h3 {
@@ -168,9 +173,12 @@ nav li button {
   font-size: 1.5rem;
   box-shadow: 1px 1px 5px var(--light);
 }
+.current-h3{
+  font-size: 2rem !important;
+}
 
 .budget-price {
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   color: rgb(50, 205, 50); /* Lime Green */
 }
@@ -323,7 +331,7 @@ footer {
 }
 
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 991px) {
   .cont .nav {
     flex-direction: column;
   }
@@ -359,11 +367,20 @@ footer {
   }
   .key-features li {
     font-size: 1.1rem;
+  margin-bottom: 5%;
+
+  }
+  .existing {
+    width: 45%;
+  }
+  .return {
+    width: 45%;
   }
 
   .budget-container form {
     text-align: center;
     width: 60%;
+    
   }
 
   .budget-container h2 {
@@ -386,9 +403,11 @@ footer {
   }
 
   .welcome-container h3 {
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
   }
-
+.username-welcome{
+  font-size: 2.3rem;
+}
   .description-container h3 {
     font-size: 0.85rem;
   }

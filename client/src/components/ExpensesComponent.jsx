@@ -26,11 +26,20 @@ export default function ExpensesComponent({ expenses, budget }) {
 
 
 
-
   const formatDate = (date) => {
-    const options = { year: 'numeric', day: 'numeric', month: 'numeric' };
-    return new Date(date).toLocaleDateString(undefined, options);
+    const dateObj = new Date(date);
+    const day = dateObj.getDate()+1;
+    const month = dateObj.getMonth() + 1; // Adding 1 because months are zero-based
+    const year = dateObj.getFullYear();
+  
+    // Ensure day and month have two digits (e.g., '01' instead of '1')
+    const formattedDay = day.toString().padStart(2, '0');
+    const formattedMonth = month.toString().padStart(2, '0');
+  
+    // Format the date as 'DD-MM-YYYY'
+    return `${formattedMonth}-${formattedDay}-${year}`;
   };
+  
 
   useEffect(() => {
     if (remainingBudget < budget * 0.1 && remainingBudget > 0) {
@@ -52,15 +61,18 @@ export default function ExpensesComponent({ expenses, budget }) {
       // Return some default content or loading indicator when expenses are undefined
       return <p>Loading expenses...</p>;
     }
-
-    return expenses.map((item) => (
+  
+    // Sort expenses by createdAt in ascending order (oldest first)
+    const sortedExpenses = expenses.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  
+    return sortedExpenses.map((item) => (
       <Link
         to={`/profile/${auth.getProfile().data.username.username}/${item._id}`}
         className="expense-row"
         key={item._id}
       >
         <p>
-          - <span className="amount-money">{ item.amount ? item.amount.toLocaleString(): 'N/A'}</span>
+          - <span className="amount-money">{item.amount ? item.amount.toLocaleString() : 'N/A'}</span>
         </p>
         <p>{item.name}</p>
         <p>{item.description}</p>
@@ -68,6 +80,7 @@ export default function ExpensesComponent({ expenses, budget }) {
       </Link>
     ));
   };
+  
 
   
   return (
