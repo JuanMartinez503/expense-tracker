@@ -89,6 +89,9 @@ nav li button {
   border-radius: 20px;
   box-shadow: 1px 1px 5px var(--light) inset;
 }
+.key-features span {
+  color: rgb(163, 163, 163);
+}
 
 .key-features li {
   font-size: 1.5rem;

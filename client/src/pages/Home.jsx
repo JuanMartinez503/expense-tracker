@@ -16,22 +16,22 @@ export default function Home() {
           <h3>Key Features</h3>
           <ul>
             <li>
-              Track Your Expenses: Easily record your daily expenditures and see
+              <span>Track Your Expenses</span>: Easily record your daily expenditures and see
               where your money is going.
             </li>
             <li>
-              Set Budgets: Stay on top of your finances by setting monthly or
+           <span>Set Budgets</span>: Stay on top of your finances by setting monthly or
               category-specific budgets.
             </li>
             <li>
-              Visualize Your Spending: Gain valuable insights through real-time calculations and track your remaining budget to help you better understand your spending habits.
+              <span>Visualize Your Spending</span>: Gain valuable insights through real-time calculations and track your remaining budget to help you better understand your spending habits.
             </li>
             <li>
-              Secure and Private: Your financial data is safe and protected with
+              <span>Secure and Private</span>: Your financial data is safe and protected with
               us. We take your privacy seriously.
             </li>
             <li>
-              User-Friendly: Our user-friendly interface makes managing your
+              <span>ser-Friendly</span>: Our user-friendly interface makes managing your
               finances a breeze.
             </li>
           </ul>
