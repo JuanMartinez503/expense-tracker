@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { createExpense } from "../utils/API";
 import Auth from "../utils/auth";
 
@@ -6,9 +6,11 @@ export default function AddExpense() {
   const [amount, setAmount] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [createdAt, setCreatedAt] = useState(new Date().toISOString().split("T")[0]); // Initialize with current date
+  const now = new Date();
+  const offset = now.getTimezoneOffset();
+  now.setMinutes(now.getMinutes() - offset);
+  const [createdAt, setCreatedAt] = useState(now.toISOString().split("T")[0]);
   const [expenseCreated, setExpenseCreated] = useState(null);
-  
 
   async function handleNewExpenses(e) {
     e.preventDefault();
@@ -29,7 +31,10 @@ export default function AddExpense() {
         setAmount("");
         setDescription("");
         setName("");
-        setCreatedAt(new Date().toISOString().split("T")[0]); // Reset createdAt to current date
+        const now = new Date();
+        const offset = now.getTimezoneOffset();
+        now.setMinutes(now.getMinutes() - offset);
+        setCreatedAt(now.toISOString().split("T")[0]); // Reset createdAt to current date
 
         setTimeout(() => {
           setExpenseCreated(null);
@@ -42,7 +47,10 @@ export default function AddExpense() {
 
   // This effect will update the createdAt state when the component mounts
   useEffect(() => {
-    setCreatedAt(new Date().toISOString().split("T")[0]);
+    const now = new Date();
+    const offset = now.getTimezoneOffset();
+    now.setMinutes(now.getMinutes() - offset);
+    setCreatedAt(now.toISOString().split("T")[0]);
   }, []);
 
   return (
